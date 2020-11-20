@@ -4,15 +4,16 @@
 -- This source code is licensed under the BSD-style license found in the
 -- LICENSE file in the root directory of this source tree.
 
-
 module Duckling.Dimensions.CS
-  ( allDimensions
-  ) where
+  ( allDimensions,
+  )
+where
 
 import Duckling.Dimensions.Types
 
 allDimensions :: [Seal Dimension]
 allDimensions =
-  [ Seal Distance
-  , Seal Numeral
+  [ Seal Distance,
+    Seal Numeral,
+    Seal Time
   ]

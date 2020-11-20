@@ -3,22 +3,21 @@
 --
 -- This source code is licensed under the BSD-style license found in the
 -- LICENSE file in the root directory of this source tree.
-
-
 {-# LANGUAGE GADTs #-}
 
-
 module Duckling.Rules.CS
-  ( defaultRules
-  , langRules
-  , localeRules
-  ) where
+  ( defaultRules,
+    langRules,
+    localeRules,
+  )
+where
 
 import Duckling.Dimensions.Types
-import Duckling.Locale
-import Duckling.Types
 import qualified Duckling.Distance.CS.Rules as Distance
+import Duckling.Locale
 import qualified Duckling.Numeral.CS.Rules as Numeral
+import Duckling.Types
+import qualified Duckling.Time.CS.Rules as Time
 
 defaultRules :: Seal Dimension -> [Rule]
 defaultRules = langRules
@@ -39,7 +38,7 @@ langRules (Seal PhoneNumber) = []
 langRules (Seal Quantity) = []
 langRules (Seal RegexMatch) = []
 langRules (Seal Temperature) = []
-langRules (Seal Time) = []
+langRules (Seal Time) = Time.rules
 langRules (Seal TimeGrain) = []
 langRules (Seal Url) = []
 langRules (Seal Volume) = []
