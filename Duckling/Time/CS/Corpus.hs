@@ -5,7 +5,7 @@
 -- LICENSE file in the root directory of this source tree.
 {-# LANGUAGE OverloadedStrings #-}
 
-module Duckling.Time.EN.GB.Corpus
+module Duckling.Time.CS.Corpus
   ( allExamples,
   )
 where
