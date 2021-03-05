@@ -677,6 +677,7 @@ library
                      , Duckling.Time.DA.Corpus
                      , Duckling.Time.DA.Rules
                      , Duckling.Time.DE.Corpus
+                     , Duckling.Time.CS.Rules
                      , Duckling.Time.DE.Rules
                      , Duckling.Time.EL.Corpus
                      , Duckling.Time.EL.Rules
