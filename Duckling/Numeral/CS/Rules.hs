@@ -292,7 +292,7 @@ zeroToNineteenMap3 :: HashMap Text Integer
 zeroToNineteenMap3 = HashMap.fromList
   [ ( "nulou"    , 0 )
   , ( "jedním"   , 1 )
-  , ( "dvěmi"   , 2 )
+  , ( "dvěma"   , 2 )
   , ( "třemi"   , 3 )
   , ( "čtyřmi"     , 4 )
   , ( "pěti"     , 5 )
