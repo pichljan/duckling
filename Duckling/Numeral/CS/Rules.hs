@@ -164,17 +164,20 @@ rulePowersOfTen :: Rule
 rulePowersOfTen = Rule
   { name = "powers of tens"
   , pattern =
-    [ regex "(sto(vky)?|tisíce?|miliony?)"
+    [ regex "(sto(vky)?|set|tisíc.?|milion.?|miliard)"
     ]
   , prod = \case
       (Token RegexMatch (GroupMatch (match:_)):_) -> case Text.toLower match of
         "sto"     -> double 1e2 >>= withGrain 2 >>= withMultipliable
         "sty"     -> double 1e2 >>= withGrain 2 >>= withMultipliable
+        "set"     -> double 1e2 >>= withGrain 2 >>= withMultipliable
         "stovky"  -> double 1e2 >>= withGrain 2 >>= withMultipliable
         "tisíc"   -> double 1e3 >>= withGrain 3 >>= withMultipliable
         "tisíce"  -> double 1e3 >>= withGrain 3 >>= withMultipliable
         "milion"  -> double 1e6 >>= withGrain 6 >>= withMultipliable
+        "milionů"  -> double 1e6 >>= withGrain 6 >>= withMultipliable
         "miliony" -> double 1e6 >>= withGrain 6 >>= withMultipliable
+        "miliard" -> double 1e9 >>= withGrain 9 >>= withMultipliable
         _         -> Nothing
       _ -> Nothing
   }
