@@ -330,25 +330,27 @@ ruleInteger3 = Rule
 
 zeroToNineteenMap4 :: HashMap Text Integer
 zeroToNineteenMap4 = HashMap.fromList
-  [( "poloviny"   , 2 )
-  , ( "třetiny"   , 3 )
-  , ( "čtvrtiny"     , 4 )
-  , ( "pětiny"     , 5 )
-  , ( "šestiny"     , 6 )
-  , ( "sedminy"   , 7 )
-  , ( "osminy"     , 8 )
-  , ( "devítiny"    , 9 )
-  , ( "desítiny"   , 10 )
-  , ( "jednáctiny"    , 11 )
-  , ( "dvanáctiny"   , 12 )
-  , ( "třináctiny"   , 13 )
-  , ( "čtrnáctiny", 14 )
-  , ( "patnáctiny" , 15 )
-  , ( "šestnáctiny" , 16 )
-  , ( "sedmnáctiny" , 17 )
-  , ( "osmnáctiny" , 18 )
-  , ( "devatenáctiny", 19 )
-  , ( "dvacetiny", 20 )
+  [ ("první"   , 1 )
+  , ("prvou"   , 1 )
+  , ( "druhou"   , 2 )
+  , ( "třetí"   , 3 )
+  , ( "čtvrtou"     , 4 )
+  , ( "pátou"     , 5 )
+  , ( "šestou"     , 6 )
+  , ( "sedmou"   , 7 )
+  , ( "osmou"     , 8 )
+  , ( "devátou"    , 9 )
+  , ( "desátou"   , 10 )
+  , ( "jednáctou"    , 11 )
+  , ( "dvanáctou"   , 12 )
+  , ( "třináctou"   , 13 )
+  , ( "čtrnáctou", 14 )
+  , ( "patnáctou" , 15 )
+  , ( "šestnáctou" , 16 )
+  , ( "sedmnáctou" , 17 )
+  , ( "osmnáctou" , 18 )
+  , ( "devatenáctou", 19 )
+  , ( "dvacátou", 20 )
   ]
 
 ruleInteger4 :: Rule
@@ -356,7 +358,7 @@ ruleInteger4 = Rule
   { name = "integer (0..19)"
   -- e.g. jedenásť must be before jeden, otherwise jeden will always shadow jedenásť
   , pattern =
-    [ regex "(poloviny|(třeti|čtvrti|pěti|šesti|sedmi|osmi|devíti|desíti|jednácti|dvanácti|třinácti|čtrnácti|patnácti|šestnácti|sedmnácti|osmnácti|devatenácti|dvaceti)ny)"
+    [ regex "(první|prvou|druhou|třetí|čtvrtou|pátou|šestou|sedmou|osmou|devátou|desátou|jednáctou|dvanáctou|třináctou|čtrnáctou|patnáctou|šestnáctou|sedmnáctou|osmnáctou|devatenáctou|dvacátou)"
     ]
   , prod = \case
       (Token RegexMatch (GroupMatch (match:_)):_) ->
