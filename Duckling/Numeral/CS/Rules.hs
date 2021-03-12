@@ -207,7 +207,7 @@ zeroToNineteenMap = HashMap.fromList
   , ( "jedna"   , 1 )
   , ( "jedno"   , 1 )
   , ( "dva"     , 2 )
-  , ( "dve"     , 2 )
+  , ( "dvě"     , 2 )
   , ( "tři"     , 3 )
   , ( "čtyři"   , 4 )
   , ( "pět"     , 5 )
@@ -232,7 +232,7 @@ ruleInteger = Rule
   { name = "integer (0..19)"
   -- e.g. jedenásť must be before jeden, otherwise jeden will always shadow jedenásť
   , pattern =
-    [ regex "(nula|jed(enáct|en|na|no)|dv(anáct|a|e)|třináct|tři|čtrnáct|čtyři|patnáct|pět|šestnáct|šest|sedmnáct|sedm|osmnáct|osm|devatenáct|devět|deset)"
+    [ regex "(nula|jed(enáct|en|na|no)|dv(anáct|a|ě)|třináct|tři|čtrnáct|čtyři|patnáct|pět|šestnáct|šest|sedmnáct|sedm|osmnáct|osm|devatenáct|devět|deset)"
     ]
   , prod = \case
       (Token RegexMatch (GroupMatch (match:_)):_) ->
@@ -292,6 +292,7 @@ zeroToNineteenMap3 :: HashMap Text Integer
 zeroToNineteenMap3 = HashMap.fromList
   [ ( "nulou"    , 0 )
   , ( "jedním"   , 1 )
+  , ( "jednou"   , 1 )
   , ( "dvěma"   , 2 )
   , ( "třemi"   , 3 )
   , ( "čtyřmi"     , 4 )
@@ -319,7 +320,7 @@ ruleInteger3 = Rule
   { name = "integer (0..19)"
   -- e.g. jedenásť must be before jeden, otherwise jeden will always shadow jedenásť
   , pattern =
-    [ regex "(nulou|jedním|dvěmi|třemi|čtyřmi|pěti|šesti|sedmi|osmi|devíti|deseti|desíti|jednácti|dvanácti|třinácti|čtrnácti|patnácti|šestnácti|sedmnácti|osmnácti|devatenácti|dvaceti)"
+    [ regex "(nulou|jedním|jednou|dvěma|třemi|čtyřmi|pěti|šesti|sedmi|osmi|devíti|deseti|desíti|jednácti|dvanácti|třinácti|čtrnácti|patnácti|šestnácti|sedmnácti|osmnácti|devatenácti|dvaceti)"
     ]
   , prod = \case
       (Token RegexMatch (GroupMatch (match:_)):_) ->
