@@ -35,9 +35,9 @@ $ curl -XPOST http://0.0.0.0:8000/parse --data 'locale=en_GB&text=tomorrow at ei
 In the example application, all dimensions are enabled by default. Provide the parameter `dims` to specify which ones you want. Examples:
 ```
 Identify credit card numbers only:
-$ curl -XPOST http://0.0.0.0:8000/parse --data 'locale=en_US&text="4111-1111-1111-1111"&dims="[\"credit-card-number\"]"'
+$ curl -XPOST http://0.0.0.0:8000/parse --data 'locale=en_US&text="4111-1111-1111-1111"&dims="["credit-card-number"]"'
 If you want multiple dimensions, comma-separate them in the array:
-$ curl -XPOST http://0.0.0.0:8000/parse --data 'locale=en_US&text="3 cups of sugar"&dims="[\"quantity\",\"numeral\"]"'
+$ curl -XPOST http://0.0.0.0:8000/parse --data 'locale=en_US&text="3 cups of sugar"&dims="["quantity","numeral"]"'
 ```
 
 See `exe/ExampleMain.hs` for an example on how to integrate Duckling in your
@@ -107,7 +107,7 @@ shouldn't) parse. The reference time for the corpus is Tuesday Feb 12, 2013 at
 ```
 $ stack repl --no-load
 > :l Duckling.Debug
-> debug (makeLocale EN $ Just US) "in two minutes" [This Time]
+> debug (makeLocale EN $ Just US) "in two minutes" [Seal Time]
 in|within|after <duration> (in two minutes)
 -- regex (in)
 -- <integer> <unit-of-duration> (two minutes)
