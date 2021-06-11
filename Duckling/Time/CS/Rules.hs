@@ -122,7 +122,19 @@ ruleAbsorbOnDay :: Rule
 ruleAbsorbOnDay = Rule
   { name = "on <day>"
   , pattern =
-    [ regex "(v|ve)"
+    [ regex "v"
+    , Predicate $ isGrainOfTime TG.Day
+    ]
+  , prod = \tokens -> case tokens of
+      (_:token:_) -> Just token
+      _ -> Nothing
+  }
+
+ruleAbsorbOnDay2 :: Rule
+ruleAbsorbOnDay2 = Rule
+  { name = "on <day>"
+  , pattern =
+    [ regex "ve"
     , Predicate $ isGrainOfTime TG.Day
     ]
   , prod = \tokens -> case tokens of
@@ -192,6 +204,7 @@ rules =
   , ruleDDMMRRRR
   , ruleDDMMRRRRDot
   , ruleAbsorbOnDay
+  , ruleAbsorbOnDay2
   , ruleNextDOW
   , ruleNextTime
   , ruleThisTime
